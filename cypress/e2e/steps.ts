@@ -75,3 +75,7 @@ When("you click on the 'Logout' button", () => {
 Then("you should be logged out successfully", () => {
   loginPage.assertLoginPageVisible();
 });
+
+Then("the menu items should be visible", () => {
+  homePage.assertMenuItemsVisible();
+});
