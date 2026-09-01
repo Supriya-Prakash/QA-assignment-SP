@@ -1,0 +1,25 @@
+{
+  "invalidEmail": { "email": "biancunha@@gmail.com", "password": "123456" },
+  "invalidPassword": { "email": "admin@admin.com", "password": "20202" },
+  "invalidEmailAndPassword": {
+    "email": "growdev@growdev.com,br",
+    "password": "growdev123!!"
+  },
+  "emptyEmail": { "email": "", "password": "growdev123" },
+  "emptyPassword": { "email": "growdev@growdev.com.br", "password": "" },
+  "emptyEmailAndPassword": { "email": "", "password": "" },
+  "upperCaseEmail": {
+    "email": "GROWDEV@GROWDEV.COM.BR",
+    "password": "growdev123"
+  },
+  "upperCasePassword": {
+    "email": "growdev@growdev.com.br",
+    "password": "GROWDEV123"
+  },
+  "emailWithoutAtSymbol": {
+    "email": "adminadmin.com",
+    "password": "2020"
+  },
+  "missingDotInDomain": { "email": "admin@admincom", "password": "2020" },
+  "typeMistakeInDomain": { "email": "admin@admin.co", "password": "2020" }
+}

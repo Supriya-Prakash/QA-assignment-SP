@@ -1,0 +1,5 @@
+{
+  "validUser1": { "email": "admin@admin.com", "password": "2020" },
+  "validUser2": { "email": "biancunha@gmail.com", "password": "123456" },
+  "validUser3": { "email": "growdev@growdev.com.br", "password": "growdev123" }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "testautomation-web",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^26.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "axe-core": "^4.13.0",
+    "cypress": "^15.21.1",
+    "cypress-axe": "^1.7.0",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.6"
+  }
+}
