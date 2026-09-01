@@ -1,7 +1,6 @@
 import { SELECTORS } from "../../e2e/const.ts";
 
 class LoginPage {
-
   //Navigate to the login page and clear any persisted browser state.
   visit() {
     cy.clearAllLocalStorage();
@@ -13,8 +12,8 @@ class LoginPage {
     const emailInput = cy.get(SELECTORS.EMAIL_INPUT);
     emailInput.clear();
 
-    if(email){
-        emailInput.type(email);
+    if (email) {
+      emailInput.type(email);
     }
   }
 
@@ -22,10 +21,11 @@ class LoginPage {
   enterPassword(password: string) {
     const passwordInput = cy.get(SELECTORS.PASSWORD_INPUT);
     passwordInput.clear();
-    
-    if(password){
-        passwordInput.type(password);
-    }  }
+
+    if (password) {
+      passwordInput.type(password);
+    }
+  }
 
   enterCredentials(email: string, password: string) {
     this.enterEmail(email);
@@ -41,7 +41,7 @@ class LoginPage {
     this.clickLoginButton();
   }
 
-    clickEmailField(){
+  clickEmailField() {
     cy.get(SELECTORS.EMAIL_INPUT).click();
   }
 
@@ -51,12 +51,11 @@ class LoginPage {
   }
 
   //Assertions
-  assertLoggedIn() {
-    cy.get(SELECTORS.LOGOUT_BUTTON).should("be.visible");
-  }
-
   assertLoginPageVisible() {
-    cy.get(SELECTORS.HEADER_MESSAGE).should('contain.text',"Automation doesn't stop at testing, it's just a beginning!")
+    cy.get(SELECTORS.HEADER_MESSAGE).should(
+      "contain.text",
+      "Automation doesn't stop at testing, it's just a beginning!",
+    );
     cy.get(SELECTORS.LOGIN_BUTTON).should("be.visible");
   }
 
@@ -67,8 +66,6 @@ class LoginPage {
   assertErrorMessageNotDisplayed() {
     cy.get(SELECTORS.ERROR_MESSAGE).should("not.exist");
   }
-
-
 }
 
 export const loginPage = new LoginPage();

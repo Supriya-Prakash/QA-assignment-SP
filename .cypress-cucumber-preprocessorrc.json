@@ -1,3 +1,4 @@
 {
-  "stepDefinitions":["cypress/e2e/**/*.steps.ts", "cypress/e2e/steps.ts"]
+  "stepDefinitions":["cypress/e2e/**/*.steps.ts", "cypress/e2e/steps.ts"],
+  "filterSpecs" : true
 }

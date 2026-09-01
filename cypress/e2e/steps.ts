@@ -5,6 +5,7 @@ import {
   Then,
 } from "@badeball/cypress-cucumber-preprocessor";
 import { loginPage } from "../support/pages/login.page.js";
+import { homePage } from "../support/pages/home.page.ts";
 
 Given("a login page", () => {
   loginPage.visit();
@@ -22,7 +23,7 @@ And("you click on the 'Login' button", () => {
 });
 
 Then("you should be logged in successfully", () => {
-  loginPage.assertLoggedIn();
+  homePage.assertHomePageVisible();
 });
 
 When("you login as a {string} with invalid credentials", (userKey: string) => {
@@ -53,4 +54,24 @@ When("you append {string} to the email", (fix: string) => {
 
 Then("no error message should be displayed", () => {
   loginPage.assertErrorMessageNotDisplayed();
+});
+
+When("you refresh the page", () => {
+  cy.reload();
+});
+
+Then("you should remain logged in", () => {
+  homePage.assertHomePageVisible();
+});
+
+Then("you should remain logged out", () => {
+  loginPage.assertLoginPageVisible();
+});
+
+When("you click on the 'Logout' button", () => {
+  homePage.clickLogout();
+});
+
+Then("you should be logged out successfully", () => {
+  loginPage.assertLoginPageVisible();
 });
