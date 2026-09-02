@@ -20,7 +20,11 @@ jobs:
         run: docker build -f Dockerfile.combined -t qa-assignment-sp .
 
       - name: Run Cypress tests
-        run: docker run --rm -v "${{ github.workspace }}/cypress/screenshots:/app/cypress/screenshots" qa-assignment-sp
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}/cypress/screenshots:/app/cypress/screenshots" \
+            -v "${{ github.workspace }}/cypress/reports:/app/cypress/reports" \
+            qa-assignment-sp
 
       - name: Upload screenshots
         if: failure()
@@ -28,3 +32,11 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
+      # Upload HTML reports regardless of test status
+      - name: Upload Mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports/html
