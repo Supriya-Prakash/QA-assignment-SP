@@ -5,10 +5,11 @@ node_modules/
 dist/
 app/dist/
 
-#Cypress
+# Cypress
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
+cypress/reports/
 
 # Logs
 *.log
