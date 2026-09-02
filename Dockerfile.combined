@@ -7,7 +7,6 @@ RUN cd app && npm ci
 COPY package*.json ./
 RUN npm ci
 
-COPY app ./app
 COPY . .
 
 ENTRYPOINT []
