@@ -1,0 +1,14 @@
+FROM cypress/included:15.21.1
+WORKDIR /app
+
+COPY app/package*.json ./app/
+RUN cd app && npm ci
+
+COPY package*.json ./
+RUN npm ci
+
+COPY app ./app
+COPY . .
+
+ENTRYPOINT []
+CMD ["sh", "-c", "cd app && npm run dev -- --host 0.0.0.0 & until wget -q --spider http://localhost:5173; do sleep 1; done; npx cypress run --browser ${BROWSER:-chrome}"]

@@ -1,0 +1,11 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.combined
+    environment:
+      - BROWSER=${BROWSER:-chrome}        
+    shm_size: '2gb'
+    volumes:
+      - ./cypress/screenshots:/app/cypress/screenshots
+      - ./cypress/videos:/app/cypress/videos
