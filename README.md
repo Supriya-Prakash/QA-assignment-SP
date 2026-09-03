@@ -145,8 +145,13 @@ The pipeline:
 - Uploads Mochawesome reports as CI artifacts
 - Provides an option to manually run accessibility tests
 
-Functional tests run automatically on configured pushes and pull requests.
+Functional tests run automatically on configured pushes to master and pull requests targeting master.
 Accessibility tests can be included through the manually triggered workflow option.
+
+### Running Accessibility Tests in GitHub
+Go to **Actions -> Cypress Tests -> Run workflow**, check **Include accessibility tests**, and run.
+Results appear under the `accessibility-tests` job.
+The full report is downloadable as the `accessibility-mochawesome-report` artifact.
 
 ## Framework Design
 The framework uses:
