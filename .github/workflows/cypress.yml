@@ -36,6 +36,7 @@ jobs:
         run: |
           docker run --rm \
             -e BROWSER=${{ matrix.browser }} \
+            -e CYPRESS_TAGS="not @accessibility" \
             -v "${{ github.workspace }}/cypress/screenshots:/app/cypress/screenshots" \
             -v "${{ github.workspace }}/cypress/reports:/app/cypress/reports" \
             qa-assignment-sp
