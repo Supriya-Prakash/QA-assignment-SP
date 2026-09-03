@@ -1,7 +1,5 @@
-//Add reusable Cypress commands here as the test suite grows.
-
-//Runs Axe against WCAG 2.0 and 2.1 level A and AA.
-//Best practice rules have been excluded from the check.
+//Runs Axe against WCAG 2.0 and 2.1 level A and AA rules.
+//Best-practice rules have been intentionally excluded from the check.
 export function checkWcagA11y() {
   cy.injectAxe();
 

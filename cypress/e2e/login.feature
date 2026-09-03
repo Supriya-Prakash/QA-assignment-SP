@@ -1,63 +1,67 @@
 Feature: User login
 
-@smoke
-Scenario Outline: Successful user login with valid credentials
+  @smoke
+  Scenario Outline: Successful user login with valid credentials
     Given a login page
     When you login as a "<validUser>" with valid credentials
     And you click on the 'Login' button
     Then you should be logged in successfully
 
     Examples:
-    | validUser   |
-    | validUser1  |
-    | validUser2  |
-    | validUser3  |
+      | validUser  |
+      | validUser1 |
+      | validUser2 |
+      | validUser3 |
 
-@negative @credentials
-Scenario Outline: Login failure for user with incorrect credentials
-Given a login page
-When you login as a "<invalidUser>" with invalid credentials
-And you click on the 'Login' button
-Then an error message "Invalid email or password. Please try again." should be displayed
-And you stay on the login page
+  @negative
+  @credentials
+  Scenario Outline: Login failure for user with incorrect credentials
+    Given a login page
+    When you login as a "<invalidUser>" with invalid credentials
+    And you click on the 'Login' button
+    Then an error message "Invalid email or password. Please try again." should be displayed
+    And you stay on the login page
 
-Examples: 
-| invalidUser             |
-| invalidEmail            |
-| invalidPassword         |
-| invalidEmailAndPassword |
+    Examples:
+      | invalidUser             |
+      | invalidEmail            |
+      | invalidPassword         |
+      | invalidEmailAndPassword |
 
-@negative @boundary
-Scenario Outline: Login fails with empty, whitespace, or case-senstive credentials
-Given a login page
-When you login as a "<invalidUser>" with invalid credentials
-And you click on the 'Login' button
-Then an error message "Invalid email or password. Please try again." should be displayed
-And you stay on the login page
+  @negative
+  @boundary
+  Scenario Outline: Login fails with empty or case-sensitive credentials
+    Given a login page
+    When you login as a "<invalidUser>" with invalid credentials
+    And you click on the 'Login' button
+    Then an error message "Invalid email or password. Please try again." should be displayed
+    And you stay on the login page
 
-Examples:
-| invalidUser                        |
-| emptyEmail                         |
-| emptyPassword                      |
-| emptyEmailAndPassword              |
-| upperCaseEmail                     |
-| upperCasePassword                  |
+    Examples:
+      | invalidUser           |
+      | emptyEmail            |
+      | emptyPassword         |
+      | emptyEmailAndPassword |
+      | upperCaseEmail        |
+      | upperCasePassword     |
 
-@negative @format
-Scenario Outline: Login fails with invalid email format
-Given a login page
-When you login as a "<invalidUser>" with invalid credentials
-And you click on the 'Login' button
-Then an error message "Invalid email or password. Please try again." should be displayed
-And you stay on the login page
-Examples: Incorrect format
-| invalidUser          |
-| emailWithoutAtSymbol |
-| missingDotInDomain   |
-| typeMistakeInDomain  |
+  @negative
+  @format
+  Scenario Outline: Login fails with invalid email format
+    Given a login page
+    When you login as a "<invalidUser>" with invalid credentials
+    And you click on the 'Login' button
+    Then an error message "Invalid email or password. Please try again." should be displayed
+    And you stay on the login page
 
-@negative @recovery
-Scenario Outline: Retry user login with correct credentials is successful after a failed attempt
+    Examples:
+      | invalidUser          |
+      | emailWithoutAtSymbol |
+      | missingDotInDomain   |
+
+  @negative
+  @recovery
+  Scenario Outline: Retry user login with correct credentials is successful after a failed attempt
     Given a login page
     When you login as a "<invalidUser>" with invalid credentials
     And you click on the 'Login' button
@@ -67,13 +71,13 @@ Scenario Outline: Retry user login with correct credentials is successful after 
     Then you should be logged in successfully
 
     Examples:
-    | invalidUser          | validUser  |
-    | invalidPassword      | validUser1 |  #incorrect credentials
-    | emptyEmail           | validUser1 |  #boundary
-    | emailWithoutAtSymbol | validUser1 |  #incorrect format
+      | invalidUser          | validUser  |
+      | invalidPassword      | validUser1 |
+      | emptyEmail           | validUser1 |
+      | emailWithoutAtSymbol | validUser1 |
 
-@recovery
-Scenario Outline: User can recover from an incorrect email and login successfully
+  @recovery
+  Scenario Outline: User can recover from an incorrect email and login successfully
     Given a login page
     When you login as a "<invalidUser>" with invalid credentials
     And you click on the 'Login' button
@@ -85,5 +89,5 @@ Scenario Outline: User can recover from an incorrect email and login successfull
     Then you should be logged in successfully
 
     Examples:
-    | invalidUser         | fix |
-    | typeMistakeInDomain | m   |
+      | invalidUser         | fix |
+      | typeMistakeInDomain | m   |

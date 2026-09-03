@@ -84,8 +84,8 @@ Available tags:
 ```
 
 ## Test Coverage
-The test suite contains **23 automated tests**:
-- **21 functional tests**
+The test suite contains **22 automated tests**:
+- **20 functional tests**
   - Successful login
   - Invalid and boundary credentials
   - Invalid email format
@@ -181,3 +181,10 @@ Reports and screenshots are excluded from version control.
 
 ## Known Bugs / Findings
 Application and accessibility findings identified during testing are documented here: `docs/bugs.md`
+
+## Improvements
+- **Improve login and account recovery**
+  - Add a Forgot Password flow and clearer guidance for users who cannot access their account.
+
+- **Improve navigation and user experience**
+  - Make Home, Products, Contact and User Profile interactive where applicable and improve the navigation of elements.

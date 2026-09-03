@@ -1,13 +1,13 @@
 import { SELECTORS } from "../../e2e/const.ts";
 
 class LoginPage {
-  //Navigate to the login page and clear any persisted browser state.
+  // Navigate to the login page and clear any persisted browser state.
   visit() {
     cy.clearAllLocalStorage();
     cy.visit("/");
   }
 
-  //Clears Email field and enters supplied email address. If an empty Email is provided, the field remains empty.
+  // Clears email field and enters supplied email address. If an empty email is provided, the field remains empty.
   enterEmail(email: string) {
     const emailInput = cy.get(SELECTORS.EMAIL_INPUT);
     emailInput.clear();
@@ -17,7 +17,7 @@ class LoginPage {
     }
   }
 
-  //Clears Password field and enters supplied password. If an empty Password is provided, the field remains empty.
+  // Clears password field and enters supplied password. If an empty password is provided, the field remains empty.
   enterPassword(password: string) {
     const passwordInput = cy.get(SELECTORS.PASSWORD_INPUT);
     passwordInput.clear();
@@ -45,12 +45,12 @@ class LoginPage {
     cy.get(SELECTORS.EMAIL_INPUT).click();
   }
 
-  //Appends text to existing email input.
+  // Appends text to existing email input.
   appendToEmail(text: string) {
     cy.get(SELECTORS.EMAIL_INPUT).type(text);
   }
 
-  //Assertions
+  // Assertions
   assertLoginPageVisible() {
     cy.get(SELECTORS.HEADER_MESSAGE).should(
       "contain.text",

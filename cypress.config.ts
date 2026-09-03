@@ -25,6 +25,7 @@ async function setupNodeEvents(
 
 //Mochawesome generates an HTML report after the test run.
 export default defineConfig({
+  defaultBrowser: "chrome",
   reporter: "cypress-mochawesome-reporter",
 
   reporterOptions: {

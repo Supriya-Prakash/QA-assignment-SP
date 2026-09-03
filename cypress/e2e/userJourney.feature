@@ -1,7 +1,6 @@
 Feature: User journey
 
-@smoke
-Scenario: User can successfully login, access the home page and logout
+  Scenario: User can successfully login, access the home page and logout
     Given a login page
     When you login as a "validUser1" with valid credentials
     And you click on the 'Login' button
