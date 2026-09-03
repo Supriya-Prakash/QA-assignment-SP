@@ -10,4 +10,4 @@ RUN npm ci
 COPY . .
 
 ENTRYPOINT []
-CMD ["sh", "-c", "cd app && npm run dev -- --host 0.0.0.0 & until wget -q --spider http://localhost:5173; do sleep 1; done; npx cypress run --browser ${BROWSER:-chrome}"]
+CMD ["sh", "-c", "cd app && npm run dev -- --host 0.0.0.0 & until wget -q --spider http://localhost:5173; do sleep 1; done; if [ -n \"$CYPRESS_TAGS\" ]; then npx cypress run --browser ${BROWSER:-chrome} --env tags=\"$CYPRESS_TAGS\"; else npx cypress run --browser ${BROWSER:-chrome}; fi"]
