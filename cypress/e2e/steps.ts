@@ -6,6 +6,7 @@ import {
 } from "@badeball/cypress-cucumber-preprocessor";
 import { loginPage } from "../support/pages/login.page.js";
 import { homePage } from "../support/pages/home.page.ts";
+import { checkWcagA11y } from "../support/commands.ts";
 
 Given("a login page", () => {
   loginPage.visit();
@@ -78,4 +79,12 @@ Then("you should be logged out successfully", () => {
 
 Then("the menu items should be visible", () => {
   homePage.assertMenuItemsVisible();
+});
+
+Then("the login page should have no accessibility violations", () => {
+  checkWcagA11y();
+});
+
+Then("the home page should have no accessibility violations", () => {
+  checkWcagA11y();
 });
